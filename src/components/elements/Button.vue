@@ -30,7 +30,7 @@ export default {
   position: absolute;
   width: 20%;
   height: 20%;
-  border: 2px solid;
+  border: 3px solid;
   transition: all 0.6s ease;
   border-radius: 2px;
 }

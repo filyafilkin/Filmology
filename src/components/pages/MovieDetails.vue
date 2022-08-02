@@ -20,9 +20,9 @@
           <span class="movie-details__headers">
             Genre:
           </span>
-          <ul class="movie-details__genre__list">
+          <ul class="movie-details__genre--list">
             <li
-              class="movie-details__genre__item"
+              class="movie-details__genre--item"
               v-for="genre in movieInfo.genres"
               :key="genre.id">
                 {{ genre.name }}
@@ -61,15 +61,15 @@
           <span class="movie-details__headers">
             Links:
           </span>
-          <ul class="movie-details__links__list">
-            <li class="movie-details__links__item">
+          <ul class="movie-details__links--list">
+            <li class="movie-details__links--item">
               <a
               :href="movieInfo.homepage"
               class="movie-details__link"
               target="_blank">
               Official Website</a>
             </li> |
-            <li class="movie-details__links__item">
+            <li class="movie-details__links--item">
           <a
             :href="'https://www.imdb.com/title/' + movieInfo.imdb_id"
             class="movie-details__link"
@@ -102,7 +102,6 @@ export default {
         )
         .then((response) => {
           this.movieInfo = response.data;
-          console.log(this.movieInfo);
         });
     },
   },
@@ -133,13 +132,11 @@ export default {
   text-align: center;
   height: 90vh;
   position: relative;
-
   &__title {
     font-size: 60px;
     margin-bottom: 50px;
     padding-top: 20px;
-  }
-
+  };
   &__btn {
     text-transform: uppercase;
     background-color: transparent;
@@ -153,141 +150,119 @@ export default {
     right: 0;
     top: 50px;
     &:hover {
-        font-family: "Londrina Solid";
-        color: #fff;
-  }
-}
-
+      font-family: "Londrina Solid";
+      color: #fff;
+    };
+  };
   &__content {
     display: flex;
     flex-direction: row;
     gap: 80px;
-  }
-
+  };
   &__img {
-     width: 350px;
+    width: 350px;
     height: 500px;
-  }
-
+  };
   &__description {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
-
-  &__genre__list {
+  };
+  &__genre--list {
     display: flex;
     flex-direction: row;
-    padding-left: 0 !important;
-  }
-
+    padding-left: 0;
+  };
   &__headers {
     font-family: "Londrina Outline", cursive;
     min-width: 150px;
-  }
-
+  };
   &__text {
     font-family: "Londrina Solid", cursive;
     display: flex;
     flex-direction: row;
     text-align: start;
-  }
-
+  };
   &__subtext {
     font-family: "Londrina Solid", cursive;
-  }
-
-  &__links__list {
+  };
+  &__links--list {
     display: flex;
     flex-direction: row;
     gap: 10px;
     padding-left: 0 !important;
-  }
-
-  &__genre__item:after {
+  };
+  &__genre--item:after {
     content: ","
-  }
-
-  &__genre__item:last-child:after {
+  };
+  &__genre--item:last-child:after {
     content: ""
-  }
+  };
 }
 
-  @media (max-width: 1007px) {
+  @media (max-width: 1094px) {
   .movie-details {
-    height: 93vh !important;
-  &__title {
-    text-align: center !important;
-    font-size: 30px !important;
-  }
-
-  &__btn {
-    display: none;
-} 
-
-  &__content {
-    display: flex;
-    gap: 80px;
-  }
-
-  &__img {
-     width: 250px !important;
-    height: 350px !important;
-  }
-
-  &__description {
-    gap: 15px;
-  }
-
-  &__headers {
-    min-width: 120px !important;
-  }
-
-  &__text {
-    font-size: 18px;
-    text-align: start;
-  }
-  }
+    height: 100vh;
+    &__title {
+      text-align: center;
+      font-size: 40px;
+    };
+    &__btn {
+      display: none;
+    } ;
+    &__content {
+      display: flex;
+      gap: 80px;
+    };
+    &__img {
+      width: 250px;
+      height: 350px;
+    };
+    &__description {
+      gap: 15px;
+    };
+    &__headers {
+      min-width: 120px;
+    };
+    &__text {
+      font-size: 18px;
+      text-align: start;
+    };
+  };
 }
 
 @media (max-width: 641px) {
    .movie-details {
-    height: auto !important;
-  &__title {
-    text-align: center !important;
-    font-size: 30px !important;
-    margin-bottom: 20px !important;
-  }
-
-  &__btn {
-    display: none;
-  } 
-
-  &__content {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 40px !important; 
-  }
-
-  &__img {
-     width: 250px !important;
-    height: 350px !important;
-  }
-
-  &__description {
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-
-  &__headers {
-    min-width: 120px !important;
-  }
-
-  &__text {
-    font-size: 18px;
-    text-align: start;
-  }
-  }
+    height: 100vh;
+    &__title {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    };
+    &__btn {
+      display: none;
+    };
+    &__content {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px; 
+    };
+    &__img {
+      width: 250px;
+      height: 350px;
+    };
+    &__description {
+      gap: 15px;
+      margin-bottom: 20px;
+    };
+    &__headers {
+      min-width: 120px ;
+    };
+    &__text {
+      font-size: 18px;
+      text-align: start;
+    };
+  };
 }
 
 </style>

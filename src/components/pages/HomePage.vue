@@ -38,9 +38,9 @@ export default {
   }
 }
 
-@media (max-width: 1007px) {
+@media (max-width: 1094px) {
   .hero {
-    height: 93vh;
+    height: 100vh;
   }
 }
 </style>

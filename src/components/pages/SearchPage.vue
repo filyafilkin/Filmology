@@ -109,7 +109,7 @@
       <v-pagination
         v-if="pagination"
         :length="pages"
-        total-visible="7"
+        total-visible="5"
         v-model="pagenum"
         @click.native="$scrollToTop"
         class="pagination"
@@ -353,7 +353,10 @@ export default {
   margin-bottom: 40px;
 }
 
-@media (max-width: 1007px) {
+@media (max-width: 1094px) {
+  .movies {
+    padding-top: 40px;
+  }
   .search {
     margin-bottom: 70px;
     &__title {
@@ -371,7 +374,7 @@ export default {
   }
 
   .type {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     gap: 10px;
     &__label {
       font-size: 25px;

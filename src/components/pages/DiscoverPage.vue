@@ -230,15 +230,16 @@ export default {
   visibility: visible;
 }
 
-@media (max-width: 1007px) {
+@media (max-width: 1094px) {
   .discover {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    padding-top: 40px;
 
     &__title {
       font-size: 40px;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
 
     &__form {

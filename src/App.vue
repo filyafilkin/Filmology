@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/">
-        <HeaderSection />
-      </router-link>
+      <HeaderSection />
     </header>
     <main>
       <router-view />
@@ -56,9 +54,9 @@ a {
   display: flex;
 }
 
-@media (max-width: 1007px) {
+@media (max-width: 1094px) {
   .container {
-    max-width: 1007px;
+    max-width: 1094px;
   }
 }
 

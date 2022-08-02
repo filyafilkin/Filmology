@@ -1,8 +1,8 @@
 <template>
   <div class="header__container container">
-    <a href="#" class="logo__link">
+    <router-link :to="'/'" class="logo__link">
       <img src="@/assets/logo.svg" alt="Filmology" class="logo__img" />
-    </a>
+    </router-link>
     <nav class="nav" :class="{ active: isActive }">
       <ul class="nav__list">
         <li class="nav__item">
@@ -22,21 +22,21 @@
           >
         </li>
       </ul>
-      <ul class="social__list">
+      <ul class="social">
         <li class="social__item">
           <a href="#" class="social__link">
-            <font-awesome-icon icon="fa-brands fa-instagram social__icon"
-          /></a>
+            <font-awesome-icon icon="fa-brands fa-instagram social__icon" />
+          </a>
         </li>
         <li class="social__item">
           <a href="#" class="social__link">
-            <font-awesome-icon icon="fa-brands fa-facebook social__icon"
-          /></a>
+            <font-awesome-icon icon="fa-brands fa-facebook social__icon" />
+          </a>
         </li>
         <li class="social__item">
           <a href="#" class="social__link">
-            <font-awesome-icon icon="fa-brands fa-twitter social__icon"
-          /></a>
+            <font-awesome-icon icon="fa-brands fa-twitter social__icon" />
+          </a>
         </li>
       </ul>
     </nav>
@@ -71,67 +71,61 @@ export default {
   align-items: center;
   height: 10vh;
   background-color: #000;
-  position: relative;
   z-index: 3;
 }
 
 .nav {
   display: flex;
   flex-direction: row;
-  gap: 200px;
+  justify-content: space-between;
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    align-items: center;
+  }
+  &__link {
+    display: block;
+    position: relative;
+    font-family: "Londrina Solid", cursive;
+    font-size: 21px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+  }
+  &__link:hover {
+    font-family: "Londrina Outline", cursive;
+  }
 }
 
-.nav__list {
-  display: flex;
-  flex-direction: row;
-  gap: 80px;
-  align-items: center;
+.logo {
+  &__link {
+    padding: 5px;
+  }
+  &__img {
+    width: 200px;
+  }
 }
 
-.nav__link {
-  display: block;
-  position: relative;
-  font-family: "Londrina Solid", cursive;
-  font-size: 21px;
-  color: #fff;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out;
-}
-
-.nav__link:hover {
-  font-family: "Londrina Outline", cursive;
-}
-
-.logo__link {
-  padding: 5px;
-}
-
-.logo__img {
-  width: 200px;
-}
-
-.social__list {
+.social {
   display: flex;
   flex-direction: row;
   gap: 20px;
-}
-
-.social__link {
-  font-size: 21px;
-  color: #fff;
-  border-radius: 50%;
-  padding: 7px 10px;
-  transition: all 0.5s ease-in-out;
-}
-
-.social__link:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-.social__icon {
-  color: #fff;
-  font-size: 21px;
+  &__link {
+    font-size: 21px;
+    color: #fff;
+    border-radius: 50%;
+    padding: 7px 10px;
+    transition: all 0.5s ease-in-out;
+  }
+  &__link:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  &__icon {
+    color: #fff;
+    font-size: 21px;
+  }
 }
 
 .burger {
@@ -167,12 +161,10 @@ export default {
       transform: rotate(45deg);
       top: 9px;
     }
-
     & .burger__bot {
       transform: rotate(-45deg);
       bottom: 9px;
     }
-
     & .burger__mid {
       transform: scale(0);
     }
@@ -183,10 +175,21 @@ export default {
   }
 }
 
-@media (max-width: 1007px) {
+@media (max-width: 1094px) {
+  .header__container {
+    height: 7vh;
+    position: fixed;
+  }
+  .burger {
+    display: block;
+  }
+  .logo__img {
+    width: 170px;
+  }
   .nav {
     display: none;
     flex-direction: column;
+    position: relative;
     &__list {
       flex-direction: column;
       gap: 40px;
@@ -198,34 +201,30 @@ export default {
       justify-content: center;
       width: 50%;
       z-index: 2;
+      border: 1px solid #fff;
     }
   }
-  .social__list {
+  .social {
     position: fixed;
     top: 20%;
-    right: 17%;
+    right: 25%;
+    transform: translate(50%, 0);
     z-index: 2;
     gap: 5px;
-  }
-
-  .logo__img {
-    width: 170px;
-  }
-
-  .header__container {
-    height: 7vh;
-  }
-
-  .burger {
-    display: block;
   }
 }
 @media (max-width: 641px) {
   .logo__img {
     width: 150px;
   }
+
   .burger {
     display: block;
+  }
+
+  .social {
+    right: 25%;
+    transform: translate(50%, 0);
   }
 }
 </style>
