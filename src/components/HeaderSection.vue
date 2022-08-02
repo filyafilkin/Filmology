@@ -40,7 +40,11 @@
         </li>
       </ul>
     </nav>
-    <div class="burger" @click="isActive = !isActive">
+    <div
+      class="burger"
+      :class="{ burger__active: isActive }"
+      @click="isActive = !isActive"
+    >
       <span class="burger__item burger__top"></span>
       <span class="burger__item burger__mid"></span>
       <span class="burger__item burger__bot"></span>
@@ -136,6 +140,7 @@ export default {
   width: 30px;
   height: 20px;
   cursor: pointer;
+  z-index: 3;
   &__item {
     background-color: #fff;
     position: absolute;
@@ -157,7 +162,7 @@ export default {
     transform: translateY(-50%);
   }
 
-  &.active {
+  &__active {
     & .burger__top {
       transform: rotate(45deg);
       top: 9px;

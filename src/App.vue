@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HeaderSection from "./components/HeaderSection";
+import HeaderSection from "@/components/HeaderSection";
 
 export default {
   name: "App",
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("./assets/reset.css");
+@import url("@/assets/reset.css");
 
 #app {
   background-color: #000;

@@ -7,7 +7,7 @@ import FavouritesPage from "@/components/pages/FavouritesPage";
 
 export default {
   mode: "history",
-  base: "/Filkin_lessons/",
+  base: "/Filmology/",
 
   routes: [
     {
@@ -22,7 +22,7 @@ export default {
     },
     {
       path: "/movie/:id",
-      name: "Movie Details",
+      name: "MovieDetails",
       component: MovieDetails,
     },
     {

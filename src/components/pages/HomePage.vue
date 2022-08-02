@@ -29,7 +29,7 @@ export default {
   height: 90vh;
   display: flex;
   align-items: flex-end;
-  background-image: url(@/assets/hero.gif);
+  background-image: url(@//assets/hero.gif);
   background-size: cover;
   background-repeat: no-repeat;
   &__content {
