@@ -12,9 +12,9 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 library.add(faInstagram, faFacebook, faTwitter);
-library.add(faHeart);
+library.add(faXmark);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // TypingText

@@ -29,17 +29,22 @@
           @submit.prevent="getContent"
           @keyup.enter="getContent"
         >
-          <input
-            type="text"
-            id="input__search"
-            placeholder="Enter the title.."
-            v-model="query"
-            required
-          />
-
+          <div class="search__reset">
+            <input
+              type="text"
+              id="input__search"
+              placeholder="Enter the title.."
+              v-model="query"
+              required
+            />
+            <button type="reset" id="input__reset">
+              <font-awesome-icon icon="fa-solid fa-xmark" />
+            </button>
+          </div>
           <input type="submit" value="Search" id="input__submit" />
         </form>
       </div>
+      <span v-if="empty" class="notfound"> not found.. try again! </span>
       <div class="movies-list container" :pages="pages">
         <div
           class="movie"
@@ -47,9 +52,6 @@
           :key="movie.id"
           v-show="selectedValue === 'movie'"
         >
-          <button class="like">
-            <span class="like__text">&#10084;</span>
-          </button>
           <router-link :to="'/movie/' + movie.id">
             <img
               src="@/assets/404.jpg"
@@ -114,6 +116,9 @@
         @click.native="$scrollToTop"
         class="pagination"
       ></v-pagination>
+      <div v-if="isLoading" class="loader">
+        <img src="@/assets/loading.gif" alt="Loading..." />
+      </div>
     </section>
   </v-app>
 </template>
@@ -131,6 +136,8 @@ export default {
       selectedValue: "movie",
       pagenum: 1,
       pages: 0,
+      isLoading: false,
+      empty: Boolean,
     };
   },
   methods: {
@@ -146,6 +153,7 @@ export default {
       }
     },
     getMovies() {
+      this.isLoading = true;
       this.axios
         .get(
           `https://api.themoviedb.org/3/search/${this.selectedValue}?api_key=${this.apikey}&page=${this.pagenum}&language=en-US&include_adult=false&include_valueo&query=${this.query}`
@@ -154,9 +162,16 @@ export default {
           this.movies = response.data.results;
           this.pages = response.data.total_pages;
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => (this.isLoading = false));
+      if (this.movies.length > 0) {
+        this.empty = true;
+      } else {
+        this.empty = false;
+      }
     },
     getTV() {
+      this.isLoading = true;
       this.axios
         .get(
           `https://api.themoviedb.org/3/search/${this.selectedValue}?api_key=${this.apikey}&page=${this.pagenum}&language=en-US&include_adult=false&include_valueo&query=${this.query}`
@@ -165,7 +180,13 @@ export default {
           this.tvseries = response.data.results;
           this.pages = response.data.total_pages;
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => (this.isLoading = false));
+      if (this.tvseries.length > 0) {
+        this.empty = true;
+      } else {
+        this.empty = false;
+      }
     },
     nextPage: function () {
       this.pagenum += 1;
@@ -209,6 +230,7 @@ export default {
       this.query = this.$route.params.searchPhrase;
       this.getContent();
     }
+    this.empty = false;
   },
 };
 </script>
@@ -224,19 +246,21 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
-
+  position: relative;
   &__title {
     margin: 50px 0;
     font-family: "Londrina Outline", cursive;
     font-size: 60px;
     text-align: center;
   }
-
   &__form {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 40px;
+  }
+  &__reset {
+    position: relative;
   }
 }
 
@@ -261,6 +285,14 @@ export default {
     font-family: "Londrina Solid";
     color: #fff;
   }
+}
+
+#input__reset {
+  position: absolute;
+  color: black;
+  top: 0;
+  right: 3%;
+  font-size: 35px;
 }
 
 .type {
@@ -295,6 +327,13 @@ export default {
   }
 }
 
+.notfound {
+  color: #fff;
+  font-size: 40px;
+  background-color: #000;
+  text-align: center;
+}
+
 .movies-list {
   margin-bottom: 70px;
   display: flex;
@@ -317,30 +356,25 @@ export default {
     width: 100%;
     height: 400px;
   }
-
   &__details {
     padding: 10px;
   }
-
   &__bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
-
   &__title {
     font-size: 28px;
     color: #fff;
     line-height: 1.2;
     text-overflow: ellipsis;
   }
-
   &__date {
     font-family: "Londrina Solid", cursive;
     font-size: 18px;
     color: #fff;
   }
-
   &__rate {
     font-family: "Londrina Solid", cursive;
     font-size: 18px;
@@ -353,10 +387,19 @@ export default {
   margin-bottom: 40px;
 }
 
+.loader img {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  background-color: transparent;
+  max-width: 40px;
+}
+
 @media (max-width: 1094px) {
   .movies {
     padding-top: 40px;
   }
+
   .search {
     margin-bottom: 70px;
     &__title {
@@ -388,6 +431,7 @@ export default {
   .movies-list {
     margin-bottom: 20px;
   }
+
   .movie {
     width: 300px;
     height: 580px;
@@ -402,12 +446,18 @@ export default {
       font-size: 18px;
     }
   }
+
   #input__search {
     max-width: 350px;
   }
+
   #input__submit {
     max-width: 200px;
     padding: 5px 10px;
+  }
+
+  .notfound {
+    font-size: 30px;
   }
 }
 
@@ -418,7 +468,6 @@ export default {
       margin: 40px 0;
       font-size: 40px;
     }
-
     &__form {
       display: flex;
       flex-direction: column;
@@ -439,6 +488,10 @@ export default {
     &__radio:checked + .type__label {
       font-size: 25px;
     }
+  }
+
+  .notfound {
+    font-size: 20px;
   }
 }
 </style>

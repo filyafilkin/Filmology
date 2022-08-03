@@ -12,14 +12,10 @@
           <router-link :to="'/search'" class="nav__link">Search</router-link>
         </li>
         <li class="nav__item">
-          <router-link :to="'/discover'" class="nav__link"
-            >Discover</router-link
-          >
+          <router-link :to="'/movies'" class="nav__link">Movies</router-link>
         </li>
         <li class="nav__item">
-          <router-link :to="'/favourites'" class="nav__link"
-            >Favorites</router-link
-          >
+          <router-link :to="'/tv'" class="nav__link">TVShows</router-link>
         </li>
       </ul>
     </nav>

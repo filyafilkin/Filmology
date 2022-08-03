@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <section class="discover container">
-      <h2 class="discover__title">Discover Movies</h2>
+      <h2 class="discover__title">Movies</h2>
       <div class="discover__sort">
         <form class="discover__form">
           <input
@@ -51,9 +51,6 @@
       </div>
       <div class="movies-list container">
         <div class="movie" v-for="movie in movies" :key="movie.id">
-          <button class="like">
-            <span class="like__text">&#10084;</span>
-          </button>
           <router-link :to="'/movie/' + movie.id">
             <img
               src="@/assets/404.jpg"
@@ -93,7 +90,7 @@
 
 <script>
 export default {
-  name: "DiscoverPage",
+  name: "DiscoverMovies",
   components: {},
   data() {
     return {
@@ -194,33 +191,6 @@ export default {
     color: #000;
     background-color: #fff;
   }
-}
-
-.like {
-  visibility: hidden;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  z-index: 2;
-  border: 1px solid rgb(191, 189, 189);
-  border-radius: 50%;
-  padding: 7px;
-  background-color: rgb(191, 189, 189);
-  opacity: 70%;
-  &__text {
-    padding: 5px;
-    color: rgb(149, 147, 147);
-  }
-  &:hover {
-    opacity: 100%;
-  }
-  &:hover > .like__text {
-    color: rgb(97, 96, 96);
-  }
-}
-
-.movie:hover > .like {
-  visibility: visible;
 }
 
 @media (max-width: 1094px) {

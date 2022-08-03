@@ -80,6 +80,9 @@
         </p>
       </div>
     </div>
+     <div v-if="isLoading" class="loader">
+      <img src="@/assets/loading.gif" alt="Loading..." />
+    </div>
   </section>
 </template>
 
@@ -92,17 +95,21 @@ export default {
       apikey: "4608236be3c999836b08e6b342e284d8",
       id: this.$route.params.id,
       movieInfo: {},
+      isLoading: false,
     };
   },
   methods: {
     getMovieDetails() {
+      this.isLoading = true;
       this.axios
         .get(
           `https://api.themoviedb.org/3/${this.show}${this.id}?api_key=${this.apikey}`
         )
         .then((response) => {
-          this.movieInfo = response.data;
-        });
+          this.movieInfo = response.data
+          })
+        .catch((err) => console.error(err))
+        .finally(() => (this.isLoading = false));
     },
   },
    filters: {
@@ -125,7 +132,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .movie-details {
   display: flex;
   flex-direction: column;

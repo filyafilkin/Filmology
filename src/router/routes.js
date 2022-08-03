@@ -2,8 +2,8 @@ import HomePage from "@/components/pages/HomePage";
 import SearchPage from "@/components/pages/SearchPage";
 import MovieDetails from "@/components/pages/MovieDetails";
 import TVDetails from "@/components/pages/TVDetails";
-import DiscoverPage from "@/components/pages/DiscoverPage";
-import FavouritesPage from "@/components/pages/FavouritesPage";
+import DiscoverMovies from "@/components/pages/DiscoverMovies";
+import DiscoverTV from "@/components/pages/DiscoverTV";
 
 export default {
   mode: "history",
@@ -31,14 +31,14 @@ export default {
       component: TVDetails,
     },
     {
-      path: "/discover",
-      name: "DiscoverPage",
-      component: DiscoverPage,
+      path: "/movies",
+      name: "DiscoverMovies",
+      component: DiscoverMovies,
     },
     {
-      path: "/favourites",
-      name: "FavouritesPage",
-      component: FavouritesPage,
+      path: "/tv",
+      name: "DiscoverTV",
+      component: DiscoverTV,
     },
   ],
 };
