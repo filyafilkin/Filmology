@@ -125,7 +125,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .movie-details {
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ export default {
     font-size: 60px;
     margin-bottom: 50px;
     padding-top: 20px;
-  };
+  }
   &__btn {
     text-transform: uppercase;
     background-color: transparent;
@@ -152,117 +152,121 @@ export default {
     &:hover {
       font-family: "Londrina Solid";
       color: #fff;
-    };
-  };
+    }
+  }
   &__content {
     display: flex;
     flex-direction: row;
     gap: 80px;
-  };
+  }
   &__img {
     width: 350px;
     height: 500px;
-  };
+  }
   &__description {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  };
+  }
   &__genre--list {
     display: flex;
     flex-direction: row;
     padding-left: 0;
-  };
+  }
   &__headers {
     font-family: "Londrina Outline", cursive;
     min-width: 150px;
-  };
+  }
   &__text {
     font-family: "Londrina Solid", cursive;
     display: flex;
     flex-direction: row;
     text-align: start;
-  };
+  }
   &__subtext {
     font-family: "Londrina Solid", cursive;
-  };
+  }
   &__links--list {
     display: flex;
     flex-direction: row;
     gap: 10px;
     padding-left: 0 !important;
-  };
+  }
   &__genre--item:after {
-    content: ","
-  };
+    content: ",";
+  }
   &__genre--item:last-child:after {
-    content: ""
-  };
+    content: "";
+  }
 }
 
-  @media (max-width: 1094px) {
+@media (max-width: 1094px) {
   .movie-details {
     height: 100vh;
     &__title {
+      font-size: 30px;
       text-align: center;
-      font-size: 40px;
-    };
+      padding-top: 80px;
+      margin-bottom: 10px;
+    }
     &__btn {
       display: none;
-    } ;
+    }
     &__content {
-      display: flex;
-      gap: 80px;
-    };
+      align-items: center;
+      gap: 20px; 
+      }
     &__img {
-      width: 250px;
-      height: 350px;
-    };
+      width: 300px;
+      height: auto;
+    }
     &__description {
       gap: 15px;
-    };
+    }
     &__headers {
       min-width: 120px;
-    };
+    }
     &__text {
       font-size: 18px;
       text-align: start;
-    };
-  };
+    }
+  }
 }
 
 @media (max-width: 641px) {
-   .movie-details {
-    height: 100vh;
+  .movie-details {
+    height: auto;
+    margin-bottom: 0px;
     &__title {
-      text-align: center;
       font-size: 30px;
-      margin-bottom: 20px;
-    };
+      text-align: center;
+      padding-top: 80px;
+      margin-bottom: 10px;
+    }
     &__btn {
       display: none;
-    };
+    }
     &__content {
       flex-direction: column;
       align-items: center;
-      gap: 40px; 
-    };
+      gap: 20px; 
+      }
     &__img {
-      width: 250px;
-      height: 350px;
-    };
+      width: 300px;
+      height: auto;
+    }
     &__description {
       gap: 15px;
       margin-bottom: 20px;
-    };
+    }
     &__headers {
-      min-width: 120px ;
-    };
+      min-width: 120px;
+    }
     &__text {
       font-size: 18px;
       text-align: start;
-    };
-  };
+    }
+  }
 }
 
 </style>

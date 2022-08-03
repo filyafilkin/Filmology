@@ -157,14 +157,12 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-
   &__title {
     font-family: "Londrina Outline", cursive;
     font-size: 60px;
     margin: 50px 0;
     text-align: center;
   }
-
   &__form {
     display: flex;
     flex-direction: row;
@@ -173,7 +171,6 @@ export default {
     margin-bottom: 100px;
     gap: 20px;
   }
-
   &__label {
     font-family: "Londrina Outline", cursive;
     font-size: 30px;
@@ -188,11 +185,9 @@ export default {
       font-family: "Londrina Solid", cursive;
     }
   }
-
   &__radio {
     visibility: hidden;
   }
-
   &__radio:checked + .discover__label {
     font-family: "Londrina Solid", cursive;
     font-size: 30px;
@@ -216,11 +211,9 @@ export default {
     padding: 5px;
     color: rgb(149, 147, 147);
   }
-
   &:hover {
     opacity: 100%;
   }
-
   &:hover > .like__text {
     color: rgb(97, 96, 96);
   }
@@ -236,24 +229,21 @@ export default {
     flex-direction: column;
     margin-bottom: 20px;
     padding-top: 40px;
-
     &__title {
       font-size: 40px;
       margin-bottom: 50px;
     }
-
     &__form {
       margin-bottom: 60px;
-      gap: 5px;
+      flex-wrap: wrap;
+      gap: 15px 5px;
     }
-
     &__label {
       font-size: 20px;
       &:hover {
         font-size: 20px;
       }
     }
-
     &__radio:checked + .discover__label {
       font-size: 20px;
     }
@@ -264,24 +254,20 @@ export default {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-
     &__title {
       font-size: 40px;
     }
-
     &__form {
       margin-bottom: 60px;
       flex-direction: column;
       gap: 2px;
     }
-
     &__label {
       font-size: 18px;
       &:hover {
         font-size: 18px;
       }
     }
-
     &__radio:checked + .discover__label {
       font-size: 18px;
     }

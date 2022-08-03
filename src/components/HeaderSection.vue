@@ -22,28 +22,28 @@
           >
         </li>
       </ul>
-      <ul class="social">
-        <li class="social__item">
-          <a href="#" class="social__link">
-            <font-awesome-icon icon="fa-brands fa-instagram social__icon" />
-          </a>
-        </li>
-        <li class="social__item">
-          <a href="#" class="social__link">
-            <font-awesome-icon icon="fa-brands fa-facebook social__icon" />
-          </a>
-        </li>
-        <li class="social__item">
-          <a href="#" class="social__link">
-            <font-awesome-icon icon="fa-brands fa-twitter social__icon" />
-          </a>
-        </li>
-      </ul>
     </nav>
+    <ul class="social" :class="{ active: isActive }">
+      <li class="social__item">
+        <a href="#" class="social__link">
+          <font-awesome-icon icon="fa-brands fa-instagram social__icon" />
+        </a>
+      </li>
+      <li class="social__item">
+        <a href="#" class="social__link">
+          <font-awesome-icon icon="fa-brands fa-facebook social__icon" />
+        </a>
+      </li>
+      <li class="social__item">
+        <a href="#" class="social__link">
+          <font-awesome-icon icon="fa-brands fa-twitter social__icon" />
+        </a>
+      </li>
+    </ul>
     <div
       class="burger"
       :class="{ burger__active: isActive }"
-      @click="isActive = !isActive"
+      @click="openBurger"
     >
       <span class="burger__item burger__top"></span>
       <span class="burger__item burger__mid"></span>
@@ -59,6 +59,11 @@ export default {
     return {
       isActive: false,
     };
+  },
+  methods: {
+    openBurger: function () {
+      this.isActive = !this.isActive;
+    },
   },
 };
 </script>
@@ -142,20 +147,16 @@ export default {
     width: 20px;
     transition: all 0.3s ease-in-out;
   }
-
   &__top {
     top: 0;
   }
-
   &__bot {
     bottom: 0;
   }
-
   &__mid {
     top: 50%;
     transform: translateY(-50%);
   }
-
   &__active {
     & .burger__top {
       transform: rotate(45deg);
@@ -205,6 +206,7 @@ export default {
     }
   }
   .social {
+    display: none;
     position: fixed;
     top: 20%;
     right: 25%;

@@ -363,7 +363,6 @@ export default {
       margin: 50px 0;
       font-size: 40px;
     }
-
     &__form {
       display: flex;
       flex-direction: column;
@@ -389,16 +388,13 @@ export default {
   .movies-list {
     margin-bottom: 20px;
   }
-
   .movie {
     width: 300px;
     height: 580px;
     max-height: 580px;
-
     &__title {
       font-size: 28px;
     }
-
     &__date {
       font-size: 18px;
     }
@@ -406,11 +402,9 @@ export default {
       font-size: 18px;
     }
   }
-
   #input__search {
     max-width: 350px;
   }
-
   #input__submit {
     max-width: 200px;
     padding: 5px 10px;
