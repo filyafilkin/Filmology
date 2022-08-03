@@ -115,6 +115,8 @@
         v-model="pagenum"
         @click.native="$scrollToTop"
         class="pagination"
+        next-icon="arrow_forward_ios"
+        prev-icon="arrow_back_ios_new"
       ></v-pagination>
       <div v-if="isLoading" class="loader">
         <img src="@/assets/loading.gif" alt="Loading..." />

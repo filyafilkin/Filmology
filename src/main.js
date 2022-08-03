@@ -13,8 +13,15 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-library.add(faInstagram, faFacebook, faTwitter);
-library.add(faXmark);
+import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+library.add(
+  faInstagram,
+  faFacebook,
+  faTwitter,
+  faXmark,
+  faAngleRight,
+  faAngleLeft
+);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // TypingText
