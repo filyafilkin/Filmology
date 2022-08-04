@@ -155,6 +155,7 @@ export default {
     max-width: 150px;
     position: absolute;
     right: 0;
+    color: #fff;
     top: 50px;
     &:hover {
       font-family: "Londrina Solid";

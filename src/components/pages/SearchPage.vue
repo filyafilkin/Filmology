@@ -292,9 +292,9 @@ export default {
 #input__reset {
   position: absolute;
   color: black;
-  top: 0;
+  top: 1%;
   right: 3%;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .type {
