@@ -6,7 +6,7 @@ import DiscoverMovies from "@/components/pages/DiscoverMovies";
 import DiscoverTV from "@/components/pages/DiscoverTV";
 
 export default {
-  mode: "history",
+  mode: "hash",
   base: "/Filmology/",
 
   routes: [
