@@ -100,7 +100,7 @@ export default {
         .then((response) => {
           this.tvseries = response.data.results;
           this.pages = response.data.total_pages;
-          if (this.tvshows.length > 0) {
+          if (this.tvseries.length > 0) {
             this.pagination = true;
           }
         })

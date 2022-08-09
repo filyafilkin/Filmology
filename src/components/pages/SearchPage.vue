@@ -199,7 +199,7 @@ export default {
   },
   computed: {
     pagination() {
-      return !!this.movies?.length || !!this.tv?.length;
+      return !!this.movies?.length || !!this.tvseries?.length;
     },
   },
   watch: {
